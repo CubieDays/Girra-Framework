@@ -22,6 +22,6 @@ To use Girra Framework, follow these steps:
 2. Require the Girra Framework module.
 3. Use the framework's Jobs, classes, Dependencies, and functions to create a well-structured project that is easy to navigate.
 
-## Conclusion
+## Conclusion.
 
 Girra Framework is a great choice for anyone looking to simplify the process of organizing their Roblox Studio project. With its easy-to-use code structure and fast performance, you can focus on creating your game without worrying about the underlying architecture.
