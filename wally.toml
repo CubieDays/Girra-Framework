@@ -1,5 +1,5 @@
 [package]
-name = "cubiedays/girra"
+name = "cubiedays/girraframework"
 version = "1.0.0"
 registry = "https://github.com/UpliftGames/wally-index"
 include = ["lib", "default.project.json", "LICENSE"]
