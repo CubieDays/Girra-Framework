@@ -1,0 +1,36 @@
+{
+    "name": "Girra Testing",
+    "tree": {
+      "$className": "DataModel",
+      "ReplicatedStorage": {
+        "$className": "ReplicatedStorage",
+        "Girra": {
+            "$path": "Include/Linking.lua",
+            "Packages": {
+                "$path": "Packages",
+                "girra": {
+                    "$path": "lib"
+                }        
+              }
+        
+      }
+       
+      },
+      "ServerScriptService": {
+          "$className": "ServerScriptService",
+          "Server": {
+            "$path": "Testing/Server"
+          }
+      },
+      "StarterPlayer": {
+        "$className": "StarterPlayer",
+        "StarterPlayerScripts": {
+          "$className": "StarterPlayerScripts",
+          "Client": {
+            "$path": "Testing/Client"
+          }
+        }
+      }
+    }
+    
+  }

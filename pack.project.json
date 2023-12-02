@@ -1,0 +1,12 @@
+{
+    "name": "Girra",
+    "tree": {
+      "$path": "Include/Linking.lua",
+      "Packages": {
+        "$path": "Packages",
+        "girra": {
+            "$path": "lib"
+        }        
+      }
+    }
+  }

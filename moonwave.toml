@@ -1,0 +1,34 @@
+title = "Girra Framework"
+moogitRepoUrl = "https://github.com/CubieDays/Girra-Framework"
+changelog = true
+
+gitSourceBranch = "main"
+
+[[classOrder]]
+section = "Framework"
+classes = ["GirraFramework", "GirraServer", "GirraClient"]
+
+[[classOrder]]
+section = "Libraries"
+classes = ["Data"]
+
+[home]
+enabled = true
+includeReadme = false
+
+[docusaurus]
+tagline = "Lightweight game framework for Roblox"
+favicon = "/favicon.png"
+onBrokenLinks = "ignore"
+
+[navbar]
+title = "Framework"
+
+[footer]
+style = "dark"
+copyright = "Copyright © 2023 CubieDays Girra Framework. Built with Moonwave and Docusaurus"
+
+[navbar.logo]
+alt = "Girra"
+src = "logo.png"
+
