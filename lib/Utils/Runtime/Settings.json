@@ -1,0 +1,18 @@
+{
+    "RuntimeSettings": {
+        	"Debugging": {
+		"InStudioDebugging": {
+			"JobDebugging": true,
+			"NetworkDebugging": false,
+			"SignalDebugging": false,
+			"OutputDebugging": true
+		},
+		"InGameDebugging": {
+			"JobDebugging": false,
+			"NetworkDebugging": false,
+			"SignalDebugging": false,
+			"OutputDebugging": true
+		}
+	}
+    }    
+}

@@ -1,78 +1,43 @@
----
-sidebar_position: 5
----
-
 # Networking
-Girra Framework uses custom networking Library called: FastNet2
-Creating networks and networking is so easy firstly create a Network ( from the server )
-## Creating & Getting Networks
+Our Network Connection Methods is simillar to RemoteEvents which fires data listens to a callback function and transfer data from localscript to Serverscript
+
+## Creating a Network
+To create a network simply you use Girra.CreateNetwork(Name: string) on Server after that you notice it returns a table with some methods like Fire and Listen etc.
 ```lua
---> Server-Side
-local Girra = require(game.ReplicatedStorage.Packages.Girra):GetServer()
-
-local MyNetwork = Girra.CreateNetwork("MyNetwork" --[[ Name ]] )
-```
-After that get the network from the client-side of girra framework:
-```lua
-local Girra = require(game.ReplicatedStorage.Packages.Girra):GetClient()
-
-local MyNetwork = Girra.GetNetwork("MyNetwork" --[[ Name ]] )
-```
-## Network Functions
-You can see the network functions on the GirraClient, GirraServer Apis.
-
-## Usage
-### Server To Client
-```lua
---> Server-Side
-local Girra = require(game.ReplicatedStorage.Packages.Girra):GetServer()
-
 local MyNetwork = Girra.CreateNetwork("MyNetwork")
-
-repeat task.wait()
-
-until MyNetwork:IsListening()
-
-MyNetwork:FireAll("Hello From Server!") --> Fires for All Players
-MyNetwork:Fire([Player], "Hello From Server for 1 Player") --> Fires for one player
-MyNetwork:FireExcept({[Player1, Player2]}, "Hello From Server Except players  in table.") --> Fires for all except the players in the table {}
-MyNetwork:InvokeAll(function()
-    return 5
-end) --> Invokes for all players
-
 ```
+## Getting a Network
+Getting network is simple but you should becarful and make sure that networks has been created successfully in the server. You use Girra.GetNetwork(Name: string) on Client which returns a table with some methods or nil value if it didn't find a Network
 ```lua
-local Girra = require(game.ReplicatedStorage.Packages.Girra):GetClient()
-
-local MyNetwork = Girra.GetNetwork("MyNetwork" --[[ Name ]] )
-
-MyNetwork:Listen(function(msg)
-    print("I Got:", msg)
-end)
-
-MyNetwork:Once(function()
-    print(" This Connection will die after it gets fired  or Invoked"
-end)
+local MyNetwork = Girra.GetNetwork("MyNetwork")
 ```
-### Client To Server
+## Transfering Data From Client to Server ( Client Firing )
+To Transfer Data you need to GetNetwork and Use Network:Fire(Data: any | {any}) to Transfer Data but before that make sure the network is listening to any callback function.
 ```lua
---> Server-Side
-local Girra = require(game.ReplicatedStorage.Packages.Girra):GetServer()
-
+local MyNetwork = Girra.GetNetwork("MyNetwork")
+MyNetwork:Fire({Data})
+```
+## Transfering Data From Server to Client ( Client Firing )
+Transfering Data From Server to Client cuts to 3 the first one is Fire(Player, Data) the second is FireAll(Data) and the last is FireExcept(Players: {Player}, Data)
+```lua
 local MyNetwork = Girra.CreateNetwork("MyNetwork")
-
-MyNetwork:Listen(function(msg)
-    print("Server Got:", msg)
+MyNetwork:Fire(Player, {Data})
+MyNetwork:FireAll({Data})
+MyNetwork:FireExcept({Player1, Player2}, {Data})
+```
+## Receiving Data From Client To Server
+Althought you shouldn't worry about data races because girra handles them, but you should be careful that the Network Listens to callback before any Data Transfer happens!
+```lua
+local MyNetwork = Girra.GetNetwork("MyNetwork")
+MyNetwork:Listen(function(Content)
+    print(Content)
 end)
 ```
+## Receiving Data From Server To Client
+Same as client but for server and you need to listen before any Data Transfer or firing method.
 ```lua
-local Girra = require(game.ReplicatedStorage.Packages.Girra):GetClient()
-
-local MyNetwork = Girra.GetNetwork("MyNetwork" --[[ Name ]] )
-
-repeat task.wait()
-
-until MyNetwork:IsListening()
-
-MyNetwork:Fire("Hello From Client")
+local MyNetwork = Girra.CreateNetwork("MyNetwork")
+MyNetwork:Listen(function(Content)
+    print(Content)
+end)
 ```

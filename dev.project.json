@@ -1,0 +1,19 @@
+{
+  "name": "Build Project",
+
+  "tree": {
+  "$className": "DataModel",
+
+  "ReplicatedStorage": {
+    "$className": "ReplicatedStorage",
+
+    "Girra": {
+        "$path": "Include/Linking.lua",
+        "Packages": {
+            "$path": "Packages",
+            "girra": { "$path": "lib" }
+        }
+    }
+  }
+}
+}

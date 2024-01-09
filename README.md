@@ -3,7 +3,7 @@
 </div>
 <div align="center">
     <h1><span style="color:blue;"></span></h1>
-    <p><h2>  <a href = "https://cubiedays.github.io/Girra/"  attributes-list>View Documentation</a>  </h2> </p> 
+    <p><h2>  <a href = "https://cubiedays.github.io/Girra-Framework/"  attributes-list>View Documentation</a>  </h2> </p> 
 </div>
 Girra Framework is a fast and lightweight framework for Roblox Studio that simplifies the process of organizing your project with an easy-to-use code structure. It eliminates the need to use remote events and BindableEvents, making it easier to manage your codebase. With Girra Framework, you can focus on creating your game without worrying about the underlying architecture.
 

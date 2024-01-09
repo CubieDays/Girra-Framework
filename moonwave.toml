@@ -9,8 +9,8 @@ section = "Framework"
 classes = ["GirraFramework", "GirraServer", "GirraClient"]
 
 [[classOrder]]
-section = "Libraries"
-classes = ["Data"]
+section = "Network"
+classes = ["ServerIndex", "ClientIndex", "Network"]
 
 [home]
 enabled = true

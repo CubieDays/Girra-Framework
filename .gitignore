@@ -1,9 +1,24 @@
-/Packages
-/pack.rbxm
-/pack.rbxmx
-/test.pack.rbxl
-/wally.lock
-build
-roblox.toml
-sourcemap.json
+
 .vscode
+Packages
+
+# Project Place File
+/test.pack.rbxl
+
+# Roblox Studio rbxm files
+/*.rbxm
+/*.rbxmx
+
+# Roblox Studio Lock Files
+/*.rbxlx.lock
+/*.rbxl.lock
+/*.rbxm.lock
+
+/wally.lock
+
+roblox.toml
+roblox.yml
+
+sourcemap.json
+
+build

@@ -1,0 +1,27 @@
+{
+	"Client": {
+		"Started": "[ Girra Client ]: Framework Already Started!",
+		"NilFolder": "Forgot Argument 1 of Function: GirraClient.Start(), Must be an Instance!",
+		"CreateJobDiag": "AddJobs Is For Intellisense, Regular .Start() and manual use of .CreateJob is flexable but AddJobs is good for intellisense and code function triggering",
+		"ErrorPrefix": "[ GirraClient Error ]",
+		"InitallizeSuccess": "Successfully Initiallized Job In:",
+		"NoStartupJob": "Is only used by other Jobs or nothing!",
+		"LoadFunctionMessage": "[ GirraClient ]: AddJobs Is For Intellisense, Regular .Start() and manual use of .CreateJob is flexable but AddJobs is good for intellisense and code function triggering",
+		"InternalError": "An Error Occour ErrorMsg: \n",
+		"InitMsg": "Unable to Continue [ Given Location Is Nil or Does not contain Folders: [ Jobs, Employes ]"
+	},
+
+	"Server": {
+		"Started": "[ Girra Server ]: Framework Already Started!",
+		"NilFolder": "Forgot Argument 1 of Function: GirraServer.Start(), Must be an Instance!",
+		"ErrorPrefix": "GirraServer Error",
+		"InitallizeSuccess": "Successfully Initiallized Job In:",
+		"NoStartupJob": "Is only used by other Jobs or nothing!",
+		"CreateJobDiag": "AddJobs Is For Intellisense, Regular .Start() and manual use of .CreateJob is flexable but AddJobs is good for intellisense and code function triggering",
+		"LoadFunctionMessage": "An Error occoured ErrorMsg: \n",
+		"InternalError": "An Internal Error Happend Contact With The Developer Send Him This Code: \n",
+		"InitMsg": "Unable to Continue [ Given Location Is Nil or Does not contain Folders: [ Jobs, Employes ]"
+	},
+
+	"Other": {}
+}
