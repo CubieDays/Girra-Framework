@@ -21,7 +21,7 @@ To Transfer Data you need to GetNetwork and Use Network:Fire(Data: any | {any}) 
 local MyNetwork = Girra.GetNetwork("MyNetwork")
 MyNetwork:Fire({Data})
 ```
-## Transfering Data From Server to Client ( Client Firing )
+## Transfering Data From Server to Client ( Server Firing )
 Transfering Data From Server to Client cuts to 3 the first one is Fire(Player, Data) the second is FireAll(Data) and the last is FireExcept(Players: {Player}, Data)
 ```lua
 local MyNetwork = Girra.CreateNetwork("MyNetwork")
