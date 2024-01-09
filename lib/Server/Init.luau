@@ -780,7 +780,7 @@ end
 	Currently Debugging will not work in Signal we will work on updates to make signal debugging
 	:::
 ]=]
-function GirraServer.CreateSignal(Name): Signal.Signal?
+function GirraServer.CreateSignal(Name: string): Signal.Signal?
 	assert(Started, "Cannot Create Signal Before The Framework Starts!") --> If The Framework Started
 
 	if Name then --> If Name Exists

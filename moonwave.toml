@@ -10,7 +10,7 @@ classes = ["GirraFramework", "GirraServer", "GirraClient"]
 
 [[classOrder]]
 section = "Network"
-classes = ["ServerIndex", "ClientIndex", "Network"]
+classes = ["Server", "Client", "Network"]
 
 [home]
 enabled = true
