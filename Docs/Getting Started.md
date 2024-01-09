@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 # Getting Started
 Girra Framework is fast and very good supports intellisense with good debugging and great custom structure simillar to services but not really required. This framework has great things that makes development easier like built-in remote-signals by strings and very great network system that uses bridgenet2.
 

@@ -1,3 +1,7 @@
+---
+sidebar_position: 4
+---
+
 # Signals
 Our Event Connection Methods is simillar to RBXScriptSignal by Roblox it's a class which fires data listens to a callback function and transfer data from script to script or modulescript to script. 
 

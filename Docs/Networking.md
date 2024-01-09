@@ -1,3 +1,7 @@
+---
+sidebar_position: 5
+---
+
 # Networking
 Our Network Connection Methods is simillar to RemoteEvents which fires data listens to a callback function and transfer data from localscript to Serverscript
 
