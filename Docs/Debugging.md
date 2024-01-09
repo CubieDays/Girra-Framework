@@ -1,3 +1,7 @@
+---
+sidebar_position: 6
+---
+
 # Debugger
 Debugging in the Girra framework is very easy and effective. Debugging makes you monitor your game and see errors, logs and warnings. You can either delete a log or delete all logs and send a log or warning. You can also see all logs in a table.
 
