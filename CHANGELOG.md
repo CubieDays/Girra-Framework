@@ -10,6 +10,14 @@ local Girra = require(Path.to.girra)
 Girra.CreateSignal("MySignal")
 Girra.GetSignal("MySignal")
 ```
+- # Debugging
+Added debugging to girra framework.
+```lua
+local Girra = require(Path.to.girra)
+
+Girra.Libs.Debugger.Debug(warn, "[log]:", "an error happend")
+```
+
 - Improved source-code
 - Debugger module
 
