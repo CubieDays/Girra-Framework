@@ -15,7 +15,7 @@ Added debugging to girra framework.
 ```lua
 local Girra = require(Path.to.girra)
 
-Girra.Libs.Debugger.Debug(warn, "[log]:", "an error happend")
+Girra.Libs.Debugger.Debug(print, "[log]:", "Hello World!")
 ```
 
 - Improved source-code
