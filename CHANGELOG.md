@@ -1,4 +1,4 @@
-## 1.5.0.1
+## 1.5.1
 - Fixed 1.5.0 Parental Errors
 ## 1.5.0
 - Redocumented and improved documentation
