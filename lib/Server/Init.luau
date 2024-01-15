@@ -311,7 +311,10 @@ local Start = Signal()
 
 --> Library ↓
 GirraServer.Libs = {
-	["Promise"] = Promise,
+	["Promise"] = Promise :: typeof(Promise),
+	["Debugger"] = Debugger :: typeof(Debugger),
+	["Signal"] = Signal :: typeof(Signal),
+	["Network"] = Network :: typeof(Network),
 }
 
 --> Local Functions ↓
@@ -648,7 +651,7 @@ local function StartServer(
 	if Started then --> Checks if The Framework is started
 		return Promise.Reject(Messages.Started) --> Rejects a promise
 	end
-	
+
 	GetLocation(GameLocation) --> Gets Location
 
 	return function(UndefinedSettings: Settings) --> Returns a Function for the Settings Proccess

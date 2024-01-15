@@ -332,10 +332,10 @@ local Start = Signal()
 
 --> Library ↓
 GirraClient.Libs = {
-	["Promise"] = Promise,
-	["Debugger"] = Debugger,
-	["Signal"] = Signal,
-	["Network"] = Network,
+	["Promise"] = Promise :: typeof(Promise),
+	["Debugger"] = Debugger :: typeof(Debugger),
+	["Signal"] = Signal :: typeof(Signal),
+	["Network"] = Network :: typeof(Network),
 }
 
 --> Girra Client Function Utilities ↓
