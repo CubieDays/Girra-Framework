@@ -2,20 +2,15 @@
 
 ## Supported Versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+Versions with :x: will not work and will error.
 
 | Version | Supported          |
 | ------- | ------------------ |
 | 1.5.2   | :white_check_mark: |
 | 1.5.1   | :x:                |
-| 1.5.0   | :x: |
+| 1.5.0   | :x:                |
 | 1.0.0   | :x:                |
 
 ## Reporting a Vulnerability
-
-Use this section to tell people how to report a vulnerability.
-
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+report a vulnerability by going to issues and create issues by clicking new issue and choose Report a security vulnerability
+this framework is new and exploits may occour on it and I want to be sure it's safe as intended.
