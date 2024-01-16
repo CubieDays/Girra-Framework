@@ -33,7 +33,7 @@ jobs:
         run: mkdir -p Packages
 
       - name: Run Stylua
-        run: stylua lib
+        run: stylua lib --check
         
       - name: Run Selene
         run : selene lib
@@ -80,7 +80,7 @@ jobs:
       - name: Checkout development
         uses: actions/checkout@v3
 
-      - name: Setup Foreman
+      - name: Setup Aftman
         uses: ok-nick/setup-aftman@v0.4.2
         with: 
           token: ${{ secrets.GITHUB_TOKEN }}
