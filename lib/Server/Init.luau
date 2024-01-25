@@ -503,7 +503,6 @@ local function CreateJob(Job): JobPrivateDef?
 		if Employee then --> If Employee Exists
 			Employee.Cleanup() --> Cleans up the Employee
 			Job.Employees[EmployeeName] = nil --> Removes the Employee
-			
 		else --> Else
 			local name = Job.Name :: string --> Gives name
 			Debugger.InternalDebug(warn, "Strict", name, `{EmployeeName} is nil or does not exist`) --> Debugs

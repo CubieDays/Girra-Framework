@@ -16,21 +16,21 @@
 ]=]
 
 export type Server<T> = {
-	Fire: (self: Server<T>, Receiver: Player | Players, Content: {T} | T) -> (), --> Fire Function Fires to Specific Player
-	FireAll: (self: Server<T>, Content: {T} | T) -> (), --> FireAll Function Fires to All Players
-	Listen: (self: Server<T>, Callback: (Receiver: Player?, Content: {T} | T) -> ()) -> { Disconnect: () -> () }, --> Listen to the network
-	Once: (self: Server<T>, Callback: (Receiver: Player?, Content: {T} | T) -> ()) -> (), --> Listen to the network 1 time and disconnect
-	FireExcept: (self: Server<T>, Players: Players, Content: {T} | T) -> (), --> FireExcept Fire to all players except one
+	Fire: (self: Server<T>, Receiver: Player | Players, Content: { T } | T) -> (), --> Fire Function Fires to Specific Player
+	FireAll: (self: Server<T>, Content: { T } | T) -> (), --> FireAll Function Fires to All Players
+	Listen: (self: Server<T>, Callback: (Receiver: Player?, Content: { T } | T) -> ()) -> { Disconnect: () -> () }, --> Listen to the network
+	Once: (self: Server<T>, Callback: (Receiver: Player?, Content: { T } | T) -> ()) -> (), --> Listen to the network 1 time and disconnect
+	FireExcept: (self: Server<T>, Players: Players, Content: { T } | T) -> (), --> FireExcept Fire to all players except one
 	Wait: (self: Server<T>) -> (), --> Waiting Network fire signal
-	OnServerInvoke: ((player: Player, Content: {T} | T) -> ...any)?,
+	OnServerInvoke: ((player: Player, Content: { T } | T) -> ...any)?,
 	RateLimitActive: boolean,
 } --> Network
 
 export type Client<T> = {
-	Fire: (self: Client<T>, Content: {T} | T) -> (), --> Fire Function Fires to server
-	Listen: (self: Client<T>, Callback: (Content: {T} | T) -> ()) -> { Disconnect: () -> () }, --> Listen to the network
-	Once: (self: Client<T>, Callback: (Content: {T} | T) -> ()) -> (), --> Listen to the network 1 time and disconnect
-	Invoke: (self: Client<T>, Timeout: number, Content: {T} | T) -> (), --> Invoke Function Invokes to server
+	Fire: (self: Client<T>, Content: { T } | T) -> (), --> Fire Function Fires to server
+	Listen: (self: Client<T>, Callback: (Content: { T } | T) -> ()) -> { Disconnect: () -> () }, --> Listen to the network
+	Once: (self: Client<T>, Callback: (Content: { T } | T) -> ()) -> (), --> Listen to the network 1 time and disconnect
+	Invoke: (self: Client<T>, Timeout: number, Content: { T } | T) -> (), --> Invoke Function Invokes to server
 	Wait: (self: Client<T>) -> (), --> Waits amount of time
 } --> Network
 

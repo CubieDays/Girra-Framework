@@ -12,22 +12,22 @@
 
 --> Signal Types:
 export type Signal<T> = {
-	Fire: (self: Signal<T>, Content: {T} | T) -> (), --> Fire function
+	Fire: (self: Signal<T>, Content: { T } | T) -> (), --> Fire function
 	DisconnectAll: (self: Signal<T>) -> (), --> Disconnect function
-	Listen: (self: Signal<T>, Callback: (Content: {T} | T) -> ()) -> { Disconnect: () -> () }, --> Connect function
-	ListenOnce: (self: Signal<T>, Callback: (Content: {T} | T) -> { Disconnect: () -> () }) -> (), --> Connect once function
+	Listen: (self: Signal<T>, Callback: (Content: { T } | T) -> ()) -> { Disconnect: () -> () }, --> Connect function
+	ListenOnce: (self: Signal<T>, Callback: (Content: { T } | T) -> { Disconnect: () -> () }) -> (), --> Connect once function
 } --> Signal Type Exportation
 
-local Framework = script.Parent 
-local Packages = Framework.Parent 
+local Framework = script.Parent
+local Packages = Framework.Parent
 
 local Debugger = require(Framework.Utils.Debugger)
 local Context = require(Framework.Utils.Runtime.Context).RuntimeContext
 local signal = require(Packages.Signal)
 
-local Signal = {} 
+local Signal = {}
 local Signals = {}
-Signal.__index = Signal 
+Signal.__index = Signal
 
 --> Signal Functions:
 --[=[
