@@ -11,23 +11,23 @@
 ]=]
 
 --> Signal Types:
-export type Signal = {
-	Fire: (self: any, Content: any) -> (), --> Fire function
-	DisconnectAll: (self: any) -> (), --> Disconnect function
-	Listen: (self: any, Callback: (Content: any) -> ()) -> { Disconnect: () -> () }, --> Connect function
-	ListenOnce: (self: any, Callback: (Content: any) -> { Disconnect: () -> () }) -> (), --> Connect once function
+export type Signal<T> = {
+	Fire: (self: Signal<T>, Content: {T} | T) -> (), --> Fire function
+	DisconnectAll: (self: Signal<T>) -> (), --> Disconnect function
+	Listen: (self: Signal<T>, Callback: (Content: {T} | T) -> ()) -> { Disconnect: () -> () }, --> Connect function
+	ListenOnce: (self: Signal<T>, Callback: (Content: {T} | T) -> { Disconnect: () -> () }) -> (), --> Connect once function
 } --> Signal Type Exportation
 
-local Framework = script.Parent --> Framework Varible
-local Packages = Framework.Parent --> Packages which isa descendantof replicatedStorage
+local Framework = script.Parent 
+local Packages = Framework.Parent 
 
 local Debugger = require(Framework.Utils.Debugger)
 local Context = require(Framework.Utils.Runtime.Context).RuntimeContext
-local signal = require(Packages.Signal) --> Signal Implemntation ( Good Signal )
+local signal = require(Packages.Signal)
 
-local Signal = {} --> Index
+local Signal = {} 
 local Signals = {}
-Signal.__index = Signal --> Index Metatable
+Signal.__index = Signal 
 
 --> Signal Functions:
 --[=[

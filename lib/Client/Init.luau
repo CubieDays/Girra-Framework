@@ -508,7 +508,7 @@ local function CreateJob(Job: JobPrivateDef & Job): JobPrivateDef
 			return
 		end
 
-		if Employee.Job then
+		if Job.Employees[EmployeeName] then
 			Debugger.InternalDebug(warn, `Strict`, Job.Name, `{Employee.Name} Is Already Hired`)
 			return nil
 		end
@@ -545,9 +545,10 @@ local function CreateJob(Job: JobPrivateDef & Job): JobPrivateDef
 		if Employee then --> If Employee Exists
 			Employee.Cleanup() --> Cleans up the Employee
 			Job.Employees[EmployeeName] = nil --> Removes the Employee
+			Employee.Job = nil
 		else --> Else
 			local name = Job.Name :: string --> Gives name
-			Debugger.InternalDebug(warn, "Strict", name, `{EmployeeName} is nil or does not exist`) --> Debugs
+			Debugger.InternalDebug(warn, "Strict", name, `{EmployeeName} t`) --> Debugs
 		end
 	end
 
