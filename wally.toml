@@ -1,6 +1,6 @@
 [package]
 name = "cubiedays/girra-framework"
-version = "1.5.4"
+version = "1.5.5"
 description = "Girra's dream framework is based on success, comfort, and an easy guide."
 registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
@@ -19,4 +19,5 @@ exclude = ["**"]
 [dependencies]
 Promise = "red-blox/promise@1.1.1"
 Signal = "stravant/goodsignal@0.2.1"
+Bridge = "ffrostflame/bridgenet2@1.0.0"
 

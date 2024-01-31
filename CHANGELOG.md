@@ -1,5 +1,6 @@
 # CHANGELOG
-
+## 1.5.5
+- Used Custom Network Library Instead of ours.
 ## 1.5.3
 
 - Bug Fixes For Hiring And Firing an Employee.

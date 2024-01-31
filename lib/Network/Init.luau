@@ -41,12 +41,30 @@ type Players = {
 --> Local Tables:
 local Network = {}
 
+--> Services:
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
 --> Folders
 local Framework = script.Parent
+local Packages = ReplicatedStorage:FindFirstChild("Packages") or ReplicatedStorage.Girra.Packages
+local WallyIndex = Packages._Index
+
+--> Disable Debugging on Output:
+local Output = require(WallyIndex["ffrostflame_bridgenet2@1.0.0"].bridgenet2.Utilities.Output)
+
+Output.silent = function()
+	
+end
+
+Output.log = function()
+	
+end
 
 --> Packages:
-local BridgeNet2 = require(script.Network.bridgenet2)
+local BridgeNet2 = require(Packages.Bridge)
 local Debugger = require(Framework.Utils.Debugger)
+
+--> Indexes
 local ServerIndex = require(script.Server)
 local ClientIndex = require(script.Client)
 
