@@ -52,13 +52,9 @@ local WallyIndex = Packages._Index
 --> Disable Debugging on Output:
 local Output = require(WallyIndex["ffrostflame_bridgenet2@1.0.0"].bridgenet2.Utilities.Output)
 
-Output.silent = function()
-	
-end
+Output.silent = function() end
 
-Output.log = function()
-	
-end
+Output.log = function() end
 
 --> Packages:
 local BridgeNet2 = require(Packages.Bridge)
