@@ -1,44 +1,60 @@
 ---
 sidebar_position: 5
 ---
-
 # Networking
-Our Network Connection Methods is simillar to RemoteEvents which fires data listens to a callback function and transfer data from localscript to Serverscript
+
+Our network connection methods are similar to RemoteEvents, which fires data, listens to a callback function, and transfers data from localscript to serverscript.
 
 ## Creating a Network
-To create a network simply you use Girra.CreateNetwork(Name: string) on Server after that you notice it returns a table with some methods like Fire and Listen etc.
+
+To create a network, simply use `Girra.CreateNetwork(Name: string)` on the server. After that, you will notice that it returns a table with some methods like `Fire` and `Listen`, etc.
+
 ```lua
 local MyNetwork = Girra.CreateNetwork("MyNetwork")
 ```
+
 ## Getting a Network
-Getting network is simple but you should becarful and make sure that networks has been created successfully in the server. You use Girra.GetNetwork(Name: string) on Client which returns a table with some methods or nil value if it didn't find a Network
+
+Getting a network is simple, but you should be careful and make sure that the network has been created successfully on the server. You use `Girra.GetNetwork(Name: string)` on the client, which returns a table with some methods or a nil value if it didn’t find a network.
+
 ```lua
 local MyNetwork = Girra.GetNetwork("MyNetwork")
 ```
-## Transfering Data From Client to Server ( Client Firing )
-To Transfer Data you need to GetNetwork and Use Network:Fire(Data: any | {any}) to Transfer Data but before that make sure the network is listening to any callback function.
+
+## Transferring Data From Client to Server (Client Firing)
+
+To transfer data, you need to get the network and use `Network:Fire(Data: any | {any})` to transfer data. But before that, make sure the network is listening to any callback function.
+
 ```lua
 local MyNetwork = Girra.GetNetwork("MyNetwork")
 MyNetwork:Fire({Data})
 ```
-## Transfering Data From Server to Client ( Server Firing )
-Transfering Data From Server to Client cuts to 3 the first one is Fire(Player, Data) the second is FireAll(Data) and the last is FireExcept(Players: {Player}, Data)
+
+## Transferring Data From Server to Client (Server Firing)
+
+Transferring data from server to client cuts to 3. The first one is `Fire(Player, Data)`, the second is `FireAll(Data)`, and the last is `FireExcept(Players: {Player}, Data)`.
+
 ```lua
 local MyNetwork = Girra.CreateNetwork("MyNetwork")
 MyNetwork:Fire(Player, {Data})
 MyNetwork:FireAll({Data})
 MyNetwork:FireExcept({Player1, Player2}, {Data})
 ```
-## Receiving Data From Client To Server
-Althought you shouldn't worry about data races because girra handles them, but you should be careful that the Network Listens to callback before any Data Transfer happens!
+
+## Receiving Data From Client to Server
+
+Although you shouldn’t worry about data races because Girra handles them, you should be careful that the network listens to the callback before any data transfer happens!
+
 ```lua
 local MyNetwork = Girra.GetNetwork("MyNetwork")
 MyNetwork:Listen(function(Content)
     print(Content)
 end)
 ```
-## Receiving Data From Server To Client
-Same as client but for server and you need to listen before any Data Transfer or firing method.
+
+## Receiving Data From Server to Client
+
+Same as client but for server, and you need to listen before any data transfer or firing method.
 ```lua
 local MyNetwork = Girra.CreateNetwork("MyNetwork")
 MyNetwork:Listen(function(Content)

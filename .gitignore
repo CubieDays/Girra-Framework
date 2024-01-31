@@ -20,5 +20,6 @@ roblox.toml
 roblox.yml
 
 sourcemap.json
+.obsidian
 
 build

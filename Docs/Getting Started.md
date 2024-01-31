@@ -1,148 +1,122 @@
 ---
 sidebar_position: 3
 ---
+## Getting Started
+Girra is a Roblox game framework that uses a unique structure called **Jobs & Employees**. A job is like a core script of the game, and an employee will help a specific job or multiple jobs. Helping multiple jobs is called a **Shared Employee**, and helping one job is called a **Solo Employee**.
 
-# Getting Started
-Girra Framework is fast and very good supports intellisense with good debugging and great custom structure simillar to services but not really required. This framework has great things that makes development easier like built-in remote-signals by strings and very great network system that uses bridgenet2.
+To get started with Girra, you need to call the `Girra.Start(ServerScriptService)({...})` method In your main script. The `...` parameter is a table that contains the following configurations:
 
-## Starting Framework
-Starting Girra Framework in client and server are the same Girra Client and Server have .Start() function which starts the framework althought using it like this Girra.Start() with nothing inside will not do anything you need to setup girra configurations and booleans you can see it in the api or in the debug page whoever you should add a location to your source folder too so it's like Girra.Start(SourceFolder: Instance)
 ```lua
-Girra.Start(ServerScriptService) ({
-    Debugging = {
-        InGameDebugging = {
-            SignalDebugging = true,
-            NetworkDebugging = true,
-            JobDebugging = false,
-            OutputDebugging = false,
-        }
-        InStudioDebugging = {
-            SignalDebugging = true,
-            NetworkDebugging = true,
-            JobDebugging = true,
-            OutputDebugging = true,
-        }
+Debugging = {
+    InGameDebugging = {
+        SignalDebugging = true,
+        NetworkDebugging = true,
+        JobDebugging = false,
+        OutputDebugging = false,
+    },
+    InStudioDebugging = {
+        SignalDebugging = true,
+        NetworkDebugging = true,
+        JobDebugging = true,
+        OutputDebugging = true,
     }
+}
+```
+## Creating an Employee
+
+To create an employee, use the `Girra.CreateEmployee() ({...})` method. The employee should have the following properties and functions:
+- `OnHire()`: This function returns a function called `Cleanup`.
+- `OnWork()`: This function is used specifically for loops but can be used in real-time. You can spawn it via `Employee.Work(void)`.
+The properties are:
+- `EmployeeName`: The name of the employee.
+## Hiring an Employee
+
+To make an employee help a job, use the `Job.Hire(EmployeeName)` function.
+
+I hope this helps! Let me know if you have any other questions.
+## Creating a Job
+
+To create a job, use the `Girra.CreateJob() ({...})` method. A job should have the following properties and functions:
+- `OnInit()`: This function is used for initializing the game for future use, such as creating a network or getting it, creating a signal, or adding some properties to the job.
+- `OnStart()`: This function is used for doing some future purposes, such as hiring an employee, using a job’s function, or creating a class.
+- `OnStep()` \[ Optional ]: This function is used for loops but can be used in real-time.
+- `OnRender` \[ Client ], \[ Optional ]: This function is used for rendering on the client-side.
+- `OnHeart()` \[ Optional ]: This function is used for heartbeats.
+
+The properties are:
+
+- `Name`: The name of the job.
+- `Any` \[ Any ]: Any value, including strings, numbers, booleans, and threads.
+
+## Communicating with Jobs
+
+To communicate with jobs, you can use `Girra.GetJob(Name)` or require the module. However, you shouldn’t make the module like this for requiring the module:
+
+```lua
+local Job = Girra.CreateJob () ({
+    Name = "Job"
 })
-```
-Horray!! we started our framework!
-However SourceFolder Should contain various of things.
-And they are:
-- ### Jobs Folder
-- ### Employees Folder
-What Jobs? Jobs are things the game is focused on like DataJob or MinigameJob etc.
-Why Jobs? Simply our country dosen't have alot of jobs and its hard for you to get hired inthere so I just named my structure as Jobs and Employees why not?
-What Employees? Employees Used by jobs that can do not more than one operation they are used in heartbeats and steps alot but you can use them in sync or any ways and they simplify for you reading jobs
-
-## Jobs In General
-Jobs shouldn't be alot because they are the core things of the game and you create them For necessity
-like if you started your game and you need to create a data for the player you create A dataJob that stores and handles data you mustn't spam Jobs and place alot of methods instead you can create a 2 jobs that classes can use or employees that the 2 jobs can use.
-## Creating Job
-To create job you use the Girra.CreateJob() (table: {any}) and place some default and custom methods and properties for properties you must put a name for the job in the table for the methods you can use OnInit for initallizing job and OnStart for Starting job and u can use onstep for loops or onheart for loops but for heartbeat and if you are on client u can use OnRender which all have argument of DeltaTime.
-```lua
-local Job = Girra.CreateJob() ({ Name = "MyJob" })
 return Job
 ```
-Althought this way is not great and bad for intellisense you can use a better and easy trick to get intellisense
+
+Instead, you should use:
+
 ```lua
-local Job = { Name = "MyJob" }
+local Job = { Name = "Job" }
 Girra.CreateJob() (Job)
-return Job
+return Job 
 ```
-Now! this can work with require() and give intellisense!
-For functions we can put them like this:
+
+
+Here's examples for creating Jobs & Employees.
+### Creating a  job
+
 ```lua
-local Job = { Name = "MyJob" }
+local SomeJob = { Name = "SomeJob" }
 
-function Job:OnInit() --> Runs when job initallizes
-    Job.Hire("MyEmploy")
+function SomeJob:OnInit()
+  print("Initialized!")
 end
 
-function Job:OnStart() --> Runs when job starts
-    Job.Employees.MyEmploy.Work()
+function SomeJob:OnStart()
+  print("Started!")
 end
 
-function Job:OnStep(DeltaTime: number) --> Runs every step
-    print(DeltaTime)
+function SomeJob:OnStep()
+  print("Loop")
 end
 
-function Job:OnHeart(DeltaTime: number) --> Runs every heartbeat
-    print(DeltaTime)
+function SomeJob:OnRender() --> Render Looping
+  print("Render Loop (RenderStepped)")
 end
 
-function Job:OnRender(DeltaTime: number) --> Runs every RenderStep
-    print(DeltaTime, "Client Only")
+function SomeJob:OnHeart()
+  print("Heartbeated")
 end
 
-Girra.CreateJob() (Job)
-return Job
+Girra.CreateJob() (SomeJob)
+return SomeJob
 ```
-Great now we put methods and describe them now lets go into Employees.
 
-## Employees in General
-Employees, Employees follows jobs they can't do anything with out jobs, you can describe jobs and employees as high classes an employee should get hired from a job and then the job can make him work with .Work() currently Employees arent ready for real use or its rare to find a usecase for them but, we plan for updates on them like giving employees taskes to work on them or something like that
-## Creating Employees
-Same as creating job but this time you don't need to use intellisense way since Employees have only 2 functions and they are OnHire() and OnWork()
+### Creating an employee.
+
 ```lua
-local Employee = Girra.CreateEmployee() ({ 
-    Name = "MyJob" 
-})
-
-function Employee:OnWork()
-    print("I am working!")
-end
-
-function Employee:OnHire()
-    print("I Got Hired!")
-end
-
-return Employee
-```
-### In Job-side
-Hiring and Firing in Job-Side to Hire an employee you simply do Job.Hire(EmployName) and to fire an employee and remove it you do Job.Fire(EmployName).
-```lua
-local Job = { Name = "MyJob" }
-
-function Job:OnInit() --> Runs when job initallizes
-    Job.Hire("MyEmploy") --> Hiring employe
-end
-
-function Job:OnStart() --> Runs when job starts
-    Job.Employees.MyEmploy.Work() --> First way
-    task.wait(5)
-
-    Job.Fire("MyEmploy")
-end
-
-function Job:OnStep(DeltaTime: number) --> Runs every step
-    print(DeltaTime)
-end
-
-Girra.CreateJob() (Job)
-return Job
-```
-Horray, this is the first way to get a job and hire it but the second one is easier.
-```lua
-local Job = { Name = "MyJob" }
-local Employees = {
-
+local SomeEmployee = Girra.CreateEmployee() {
+  Name = "SomeEmployee"
 }
 
-function Job:OnInit() --> Runs when job initallizes
-   Employees.MyEmployee = Job.Hire("MyEmploy") --> Hiring employe
+function SomeEmployee:OnHire()
+  local Connection = SomeConnection
+  return function()
+    Connection:Disconnect()
+  end
 end
 
-function Job:OnStart() --> Runs when job starts
-    Employees.MyEmployee.Work() --> First way
-    task.wait(5)
+function SomeEmployee:OnWork()
+  print("Worked")
+end 
 
-    Job.Fire("MyEmploy")
-end
-
-function Job:OnStep(DeltaTime: number) --> Runs every step
-    print(DeltaTime)
-end
-
-Girra.CreateJob() (Job)
-return Job
+return SomeEmployee
 ```
+
+Lastly, getting jobs is not preferred, and you can instead use classes that help jobs with multiple tasks, unlike employees, or use modules.
