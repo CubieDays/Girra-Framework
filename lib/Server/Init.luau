@@ -481,7 +481,7 @@ local function CreateJob(Job): JobPrivateDef?
 			Debugger.InternalDebug(warn, "Strict", Job.Name, `{EmployeeName} Is nil or does not exist!`)
 		end
 
-		return Employee :: InternalEmployeeDef
+		return Job.Employees[EmployeeName] :: InternalEmployeeDef
 	end
 
 	--[[
