@@ -336,9 +336,6 @@ GirraClient.Libs = {
 	["Debugger"] = Debugger :: typeof(Debugger),
 	["Signal"] = Signal :: typeof(Signal),
 	["Network"] = Network :: typeof(Network),
-	["Janitor"] = require(Utilities.Janitor) :: typeof(require(Utilities.Janitor)),
-	["Player"] = require(Utilities.Player) :: typeof(require(Utilities.Player)),
-	["TableUtil"] = require(Utilities.TableUtil) :: typeof(require(Utilities.TableUtil)),
 }
 
 --> Girra Client Function Utilities ↓
