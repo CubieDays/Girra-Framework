@@ -100,15 +100,13 @@ end
 function PlayerUtil.GetCharacter(UserId: number): CharacterType
 	local Player = PlayerUtil.GetPlayer(UserId)
 
-	return Player and Player.Character 
-  or Player.CharacterAdded:Wait()
+	return Player and Player.Character or Player.CharacterAdded:Wait()
 end
 
 function PlayerUtil.GetCharacterR6(UserId: number): CharacterType
 	local Player = PlayerUtil.GetPlayer(UserId)
 
-	return ( Player ) and ( Player.Character
-  or Player.CharacterAdded:Wait() )
+	return Player and (Player.Character or Player.CharacterAdded:Wait())
 end
 
 function PlayerUtil.GetHead(UserId: number)

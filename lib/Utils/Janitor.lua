@@ -775,5 +775,5 @@ export type Janitor = {
 
 table.freeze(Janitor)
 return {
-  new = Janitor.new
+	new = Janitor.new,
 }
