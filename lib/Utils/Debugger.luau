@@ -135,7 +135,8 @@ function Debugger.GetLogs(): Logs<any> --> Log Getter
 	return Debugger.Logs --> Returns the Log
 end
 
-function Debugger.GetLogHistory(): { { message: string, messageType: Enum.MessageType, timestamp: number } } --> Getting Log History
+function Debugger.GetLogHistory(
+): { { message: string, messageType: Enum.MessageType, timestamp: number } } --> Getting Log History
 	return LogService:GetLogHistory() --> Returning Log History
 end
 
