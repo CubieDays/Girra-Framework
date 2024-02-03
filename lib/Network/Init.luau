@@ -57,7 +57,7 @@ Output.silent = function() end
 Output.log = function() end
 
 --> Packages:
-local BridgeNet2 = require(Packages.Bridge)
+local BridgeNet2 = require(Framework.Parent.Bridge)
 local Debugger = require(Framework.Utils.Debugger)
 
 --> Indexes

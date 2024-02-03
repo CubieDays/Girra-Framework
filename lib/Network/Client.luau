@@ -15,7 +15,7 @@
 local Framework = script.Parent.Parent
 
 --> Packages:
-local BridgeNet2 = require(script.Parent.Network.bridgenet2)
+local BridgeNet2 = require(Framework.Parent.Bridge)
 local Debugger = require(Framework.Utils.Debugger)
 
 type Players = {
