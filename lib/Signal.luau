@@ -104,9 +104,9 @@ function Signal:ListenOnce(Callback: (Content: any) -> ()) --> Listen only once 
 	return self._signal:Once(Callback) --> Returns once function
 end
 
-return function(Name: string?, Type: string?) --> Return function
+return function(Name: string?, Type: string?): Signal --> Return function
 	if Type == "Get" then --> Get Signal method
-		return Signals[Name] :: Signal --> Returns Signal
+		return Signals[Name] --> Returns Signal
 	end
 
 	local self = setmetatable({}, Signal) --> Sets self؛

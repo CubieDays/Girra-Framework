@@ -56,6 +56,7 @@ To communicate with jobs, you can use `Girra.GetJob(Name)` or require the module
 local Job = Girra.CreateJob () ({
     Name = "Job"
 })
+
 return Job
 ```
 
@@ -64,6 +65,7 @@ Instead, you should use:
 ```lua
 local Job = { Name = "Job" }
 Girra.CreateJob() (Job)
+
 return Job 
 ```
 

@@ -37,7 +37,7 @@ function Server:Fire(Player: Player | Players, Content: any)
 		print,
 		"Network",
 		"Girra Server",
-		`Fired Network: {self._name} on server to player: {Player} with data: \n`,
+		`Fired Network: {self._name} on server to player: {Player} with data:`,
 		Content
 	)
 
@@ -69,7 +69,7 @@ function Server:FireAll(Content: any)
 		print,
 		"Network",
 		"Girra Server",
-		`Fired Network: {self._name} on server to All Players with data: \n`,
+		`Fired Network: {self._name} on server to All Players with data:`,
 		Content
 	)
 
@@ -98,7 +98,7 @@ function Server:FireExcept(Players: Players, Content: any)
 		print,
 		"Network",
 		"Girra Server",
-		`Fired Network: {self._name} on server to all players except: {Players} with data: \n`,
+		`Fired Network: {self._name} on server to all players except: {Players} with data:`,
 		Content
 	)
 

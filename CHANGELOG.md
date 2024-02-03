@@ -1,4 +1,7 @@
 # CHANGELOG
+## 1.6.0
+- Added Some Utilities.
+- Debug Fixes.
 ## 1.5.5
 - Used Custom Network Library Instead of ours.
 ## 1.5.3

@@ -35,7 +35,7 @@ function Client:Fire(Content: any)
 		print,
 		"Network",
 		"Girra Client",
-		`Fired Network: {self._name} on client to server with data: \n`,
+		`Fired Network: {self._name} on client to server with data:`,
 		Content
 	)
 

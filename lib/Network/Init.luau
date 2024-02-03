@@ -80,7 +80,7 @@ end
 ]=]
 function Network.Server(Name: string, AutoIdentifier: boolean): Server<any>
 	local Bridge = BridgeNet2.ServerBridge(Name)
-	Debugger.Debug(print, { `{Name} Has created on server!` }, "Girra Server", "Network")
+	Debugger.InternalDebug(print, "Network", { `Created Network: {Name} On Server!` }, "Girra Server")
 
 	return setmetatable({
 		_class = Bridge,
@@ -97,7 +97,7 @@ end
 ]=]
 function Network.Client(Name: string, AutoIdentifier: boolean): Client<any>?
 	local Bridge = BridgeNet2.ClientBridge(Name)
-	Debugger.Debug(print, { `Got Network: {Name} on client!` }, "Girra Client", "Network")
+	Debugger.InternalDebug(print, { `Got Network: {Name} On Client!` }, "Girra Client", "Network")
 
 	return setmetatable({
 		_class = Bridge,
