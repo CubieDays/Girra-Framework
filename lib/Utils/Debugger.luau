@@ -17,6 +17,7 @@ local Context = require(Runtime.Context) --> Context Module Contains RunServer R
 
 --> Services:
 local LogService = game:GetService("LogService")
+local RunService = game:GetService("RunService")
 --> Runtime
 local Debugger = {}
 
@@ -50,6 +51,7 @@ function Debugger.InternalDebug<T...>(
 		InGame = Settings.RuntimeSettings.Debugging.InGameDebugging
 			and Settings.RuntimeSettings.Debugging.InStudioDebugging.NetworkDebugging
 			and Context.RuntimeContext.Server, --> InGame and Debugging Enabled
+		InServer = Settings.RuntimeSettings.Debugging.InGameDebugging.NetworkDebugging and RunService:IsServer(),
 	}
 
 	local SignalContext = {
@@ -59,6 +61,7 @@ function Debugger.InternalDebug<T...>(
 		InGame = Settings.RuntimeSettings.Debugging.InGameDebugging
 			and Settings.RuntimeSettings.Debugging.InStudioDebugging.SignalDebugging
 			and Context.RuntimeContext.Server, --> InGame and Debugging Enabled
+		InServer = Settings.RuntimeSettings.Debugging.InGameDebugging.SignalDebugging and RunService:IsServer(),
 	}
 
 	if Debugger.Settings.Enabled then
@@ -67,11 +70,11 @@ function Debugger.InternalDebug<T...>(
 				DebugHandler(`[ {Prefix} ]:`, ...)
 			end
 		elseif Type == "Signal" then
-			if SignalContext.Studio or SignalContext.InGame then
+			if SignalContext.Studio or SignalContext.InGame or NetworkContext.InServer then
 				DebugHandler(`[ {Prefix} ]:`, ...)
 			end
 		elseif Type == "Network" then
-			if NetworkContext.Studio or NetworkContext.InGame then
+			if NetworkContext.Studio or NetworkContext.InGame or NetworkContext.InServer then
 				DebugHandler(`[ {Prefix} ]:`, ...)
 			end
 		elseif Type == "Strict" then
@@ -132,8 +135,7 @@ function Debugger.GetLogs(): Logs<any> --> Log Getter
 	return Debugger.Logs --> Returns the Log
 end
 
-function Debugger.GetLogHistory(
-): { { message: string, messageType: Enum.MessageType, timestamp: number } } --> Getting Log History
+function Debugger.GetLogHistory(): { { message: string, messageType: Enum.MessageType, timestamp: number } } --> Getting Log History
 	return LogService:GetLogHistory() --> Returning Log History
 end
 
