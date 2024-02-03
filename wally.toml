@@ -1,6 +1,6 @@
 [package]
 name = "cubiedays/girra-framework"
-version = "1.6.1"
+version = "1.6.2"
 description = "Girra's dream framework is based on success, comfort, and an easy guide."
 registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
